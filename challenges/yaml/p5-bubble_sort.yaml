@@ -1,0 +1,37 @@
+# https://yaml-multiline.info/
+id: p5
+name: Implement Bubble Sort
+description: |
+  # Problem Description
+  
+  Implement a function `bubble_sort` that takes in an array of integers and sorts them in ascending order using the Bubble Sort algorithm.
+  
+  Bubble Sort is a simple comparison-based sorting algorithm that works by repeatedly swapping adjacent elements if they are in the wrong order. The algorithm continues to pass through the array until no more swaps are needed, indicating that the array is sorted.
+  
+  Your task is to write the `bubble_sort` function that performs the Bubble Sort algorithm and returns the sorted array.
+  
+  ## Example
+  
+  ```python
+  Input: [5, 2, 8, 12, 1]
+  Output: [1, 2, 5, 8, 12]
+  ```
+  
+  Note that the input and output arrays are shown as lists for clarity, but your `bubble_sort` function should work with regular arrays as well.
+  
+  ## Constraints
+  
+  * The input array will contain at most 1000 elements.
+  * Each element in the array is an integer with a value between -1000 and 1000.
+difficulty: easy
+tags:
+  - sorting
+signature: |
+  def bubble_sort(array):
+    pass
+
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(bubble_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'bubble_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')

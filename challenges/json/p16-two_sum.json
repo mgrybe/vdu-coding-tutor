@@ -1,0 +1,23 @@
+{
+    "ai_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.\n",
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(two_sum([2,7,11,15], 9), equal_to([0,1])), 'two_sum([2,7,11,15], 9) should be equal to [0,1]')\ntest(report, lambda: assert_that(two_sum([3,2,4], 6), equal_to([1,2])), 'two_sum([3,2,4], 6) should be equal to [1,2]')\ntest(report, lambda: assert_that(two_sum([3,3], 6), equal_to([0,1])), 'two_sum([3,3], 6) should be equal to [0,1]')",
+    "description": "# Problem Description\n\nGiven an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.\n\n## Example 1:\n\n~~~js\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1].\n~~~\n\n## Example 2:\n\n~~~js\nInput: nums = [3,2,4], target = 6\nOutput: [1,2]\n~~~\n\n## Example 3:\n\n~~~js\nInput: nums = [3,3], target = 6\nOutput: [0,1]\n~~~\n\n## Constraints:\n\n- 2 <= nums.length <= 104\n- -109 <= nums[i] <= 109\n- -109 <= target <= 109\n- Only one valid answer exists.\n\nFollow-up: Can you come up with an algorithm that is less than O(n2) time complexity?\n",
+    "difficulty": "easy",
+    "id": "p16",
+    "name": "Two Sum",
+    "signature": "def two_sum(nums, target):\n  pass\n",
+    "solutions": [
+        {
+            "content": "```python\ndef two_sum(nums, target):\n  for i in range(len(nums)):\n    for j in range(i+1, len(nums)):\n      if nums[i] + nums[j] == target:\n        return [i, j]\n```\n",
+            "summary": "Brute force"
+        },
+        {
+            "content": "```python\ndef two_sum(nums, target):\n  seen = dict()\n  for i, num in enumerate(nums):\n    complement = target - num\n    if complement in seen:\n      return [seen[complement], i]\n    seen[num] = i\n```\n",
+            "summary": "Optimised version using Hash table"
+        }
+    ],
+    "tags": [
+        "array",
+        "search"
+    ]
+}

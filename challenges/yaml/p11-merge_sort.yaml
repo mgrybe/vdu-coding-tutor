@@ -1,0 +1,37 @@
+# https://yaml-multiline.info/
+id: p11
+name: Implement Merge Sort
+description: |
+  # Problem Description
+  
+  Implement a function `merge_sort` that takes in an array of integers and sorts them in ascending order using the Merge Sort algorithm.
+  
+  Merge Sort is a divide-and-conquer algorithm that works by recursively dividing the array into two halves, sorting each half, and then merging the two sorted halves into a single sorted array.
+  
+  Your task is to write the `merge_sort` function that performs the Merge Sort algorithm and returns the sorted array.
+  
+  ## Example
+  
+  ```python
+  Input: [5, 2, 8, 12, 1]
+  Output: [1, 2, 5, 8, 12]
+  ```
+  
+  Note that the input and output arrays are shown as lists for clarity, but your `merge_sort` function should work with regular arrays as well.
+  
+  ## Constraints
+  
+  * The input array will contain at most 1000 elements.
+  * Each element in the array is an integer with a value between -1000 and 1000.
+difficulty: easy
+tags:
+  - sorting
+signature: |
+  def merge_sort(array):
+    pass
+
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(merge_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'merge_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')

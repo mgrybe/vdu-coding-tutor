@@ -1,0 +1,11 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(insertion_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'insertion_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')",
+    "description": "# Problem Description\n\nImplement a function `insertion_sort` that takes in an array of integers and sorts them in ascending order using the Insertion Sort algorithm.\n\nInsertion Sort is a simple comparison-based sorting algorithm that builds the final sorted array one element at a time. It works by iterating over the array and repeatedly inserting the current element into its correct position among the previously sorted elements.\n\nYour task is to write the `insertion_sort` function that performs the Insertion Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+    "difficulty": "easy",
+    "id": "p10",
+    "name": "Implement Insertion Sort",
+    "signature": "def insertion_sort(array):\n  pass\n",
+    "tags": [
+        "sorting"
+    ]
+}

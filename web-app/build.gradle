@@ -1,0 +1,81 @@
+plugins {
+    id "com.github.node-gradle.node" version "3.5.1"
+    id "java-library"
+}
+
+def nodeAppDir = "${project.projectDir}"
+
+node {
+    // Whether to download and install a specific Node.js version or not
+    // If false, it will use the globally installed Node.js
+    // If true, it will download node using above parameters
+    // Note that npm is bundled with Node.js
+    download = true
+    // Version of node to download and install (only used if download is true)
+    // It will be unpacked in the workDir
+    version = "18.12.1"
+
+    // Version of npm to use
+    // If specified, installs it in the npmWorkDir
+    // If empty, the plugin will use the npm command bundled with Node.js
+    npmVersion = ""
+
+    // Version of Yarn to use
+    // Any Yarn task first installs Yarn in the yarnWorkDir
+    // It uses the specified version if defined and the latest version otherwise (by default)
+    yarnVersion = ""
+
+    // Base URL for fetching node distributions
+    // Only used if download is true
+    // Change it if you want to use a mirror
+    // Or set to null if you want to add the repository on your own.
+    distBaseUrl = "https://nodejs.org/dist"
+
+    // Specifies whether it is acceptable to communicate with the Node.js repository over an insecure HTTP connection.
+    // Only used if download is true
+    // Change it to true if you use a mirror that uses HTTP rather than HTTPS
+    // Or set to null if you want to use Gradle's default behaviour.
+    allowInsecureProtocol = null
+
+    // The npm command executed by the npmInstall task
+    // By default it is install but it can be changed to ci
+    npmInstallCommand = "install"
+
+    // The directory where Node.js is unpacked (when download is true)
+    workDir = file("${project.rootDir}/.gradle/nodejs")
+
+    // The directory where npm is installed (when a specific version is defined)
+    npmWorkDir = file("${project.rootDir}/.gradle/npm")
+
+    // The directory where yarn is installed (when a Yarn task is used)
+    yarnWorkDir = file("${project.rootDir}/.gradle/yarn")
+
+    // The Node.js project directory location
+    // This is where the package.json file and node_modules directory are located
+    // By default it is at the root of the current project
+    nodeProjectDir = file(nodeAppDir)
+}
+
+task npmBuild(type: NpmTask) {
+    dependsOn npmInstall
+    inputs.files(fileTree("${nodeAppDir}") - fileTree("${nodeAppDir}/dist") - fileTree("${nodeAppDir}/node_modules"))
+    outputs.files(fileTree("${nodeAppDir}/dist"))
+    args = ['run', 'build']
+}
+
+task npmTest(type: NpmTask) {
+    inputs.files(inputs.files(fileTree("${nodeAppDir}") - fileTree("${nodeAppDir}/dist") - fileTree("${nodeAppDir}/node_modules")))
+    args = ['run', 'test']
+}
+
+test.dependsOn npmTest
+
+task npmClean(type: NpmTask) {
+    args = ['run', 'clean']
+}
+
+clean.dependsOn npmClean
+
+task npmRun(type: NpmTask) {
+    args = ['run', 'start']
+}

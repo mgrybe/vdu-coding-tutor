@@ -1,0 +1,17 @@
+#chat-window {
+    height: 75vh;
+}
+
+#chat-window-messages {
+    height: 70vh;
+    overflow: auto;
+}
+
+pre {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    overflow: wrap;
+}
+
+.MuiBox-root{
+    padding: 0;
+}

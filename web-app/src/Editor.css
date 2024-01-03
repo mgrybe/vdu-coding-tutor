@@ -1,0 +1,11 @@
+.rdw-editor-main {
+    /*background-color: white;*/
+}
+
+.rdw-editor-toolbar {
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+    /*bottom: 100;*/
+    z-index: 1000;
+}

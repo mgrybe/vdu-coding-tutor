@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "lib": ["ES2019"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": false, 
+    "sourceMap": false,
+    "inlineSources": false,
+    "types": ["node"]
+  }
+}

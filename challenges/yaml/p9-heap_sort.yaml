@@ -1,0 +1,37 @@
+# https://yaml-multiline.info/
+id: p9
+name: Implement Heap Sort
+description: |
+  # Problem Description
+  
+  Implement a function `heap_sort` that takes in an array of integers and sorts them in ascending order using the Heap Sort algorithm.
+  
+  Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. The algorithm first builds a max-heap from the input array, where the largest element is at the root. It then repeatedly removes the maximum element from the heap, places it at the end of the sorted array, and fixes the heap property. This process continues until the array is completely sorted.
+  
+  Your task is to write the `heap_sort` function that performs the Heap Sort algorithm and returns the sorted array.
+  
+  ## Example
+  
+  ```python
+  Input: [5, 2, 8, 12, 1]
+  Output: [1, 2, 5, 8, 12]
+  ```
+  
+  Note that the input and output arrays are shown as lists for clarity, but your `heap_sort` function should work with regular arrays as well.
+  
+  ## Constraints
+  
+  * The input array will contain at most 1000 elements.
+  * Each element in the array is an integer with a value between -1000 and 1000.
+difficulty: easy
+tags:
+  - sorting
+signature: |
+  def heap_sort(array):
+    pass
+
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(heap_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'heap_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')

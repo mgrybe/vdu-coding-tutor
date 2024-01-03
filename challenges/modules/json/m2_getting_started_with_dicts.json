@@ -1,0 +1,17 @@
+{
+    "description": "# Module Description\n\nThis module provides problems to get you started with dicts.\n",
+    "difficulty": "medium",
+    "id": "m2",
+    "name": "Getting started with dicts",
+    "problems": [
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+    ],
+    "summary": "Get started with basic algorithms using Python dicts",
+    "tags": [
+        "basics"
+    ]
+}
+

@@ -1,0 +1,32 @@
+# https://yaml-multiline.info/
+id: p6
+name: Find element in array
+description: |
+  # Problem Description
+
+  Write a Python program to find a given element in an array of numbers and return its index, or return `-1` if the element is not found.
+
+  ## Input
+
+  - An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.
+  - A target number, `target` (-10^9 <= target <= 10^9), which is an integer.
+
+  ## Output
+
+  - Return the index of the target number in the given array if it's present, or return `-1` if the target number is not found.
+
+difficulty: easy
+tags:
+  - recursion
+  - array
+  - search
+signature: |
+  def search(array, element):
+    pass
+
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(search([1,2,3], 3), equal_to(2)), 'search(array, element) should find element')
+  test(report, lambda: assert_that(search([1,2,3], 4), equal_to(-1)), 'search(array, element) should not find element (return -1)')

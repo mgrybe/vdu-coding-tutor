@@ -1,0 +1,37 @@
+# https://yaml-multiline.info/
+id: p12
+name: Implement Quick Sort
+description: |
+  # Problem Description
+  
+  Implement a function `quick_sort` that takes in an array of integers and sorts them in ascending order using the Quick Sort algorithm.
+  
+  Quick Sort is a popular comparison-based sorting algorithm that works by partitioning the array into two sub-arrays, according to a chosen pivot element. The elements less than the pivot are placed before it, and the elements greater than the pivot are placed after it. The algorithm then recursively sorts the sub-arrays until the entire array is sorted.
+  
+  Your task is to write the `quick_sort` function that performs the Quick Sort algorithm and returns the sorted array.
+  
+  ## Example
+  
+  ```python
+  Input: [5, 2, 8, 12, 1]
+  Output: [1, 2, 5, 8, 12]
+  ```
+  
+  Note that the input and output arrays are shown as lists for clarity, but your `quick_sort` function should work with regular arrays as well.
+  
+  ## Constraints
+  
+  * The input array will contain at most 1000 elements.
+  * Each element in the array is an integer with a value between -1000 and 1000.
+difficulty: easy
+tags:
+  - sorting
+signature: |
+  def quick_sort(array):
+    pass
+
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(quick_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'quick_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')

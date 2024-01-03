@@ -1,0 +1,58 @@
+# https://yaml-multiline.info/
+id: p7
+name: Find maximum
+description: |
+  # Problem Description
+
+  Write a Python program to find the biggest number in an array of numbers.
+
+  ## Input
+
+  - An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.
+
+  ## Output
+
+  - Return the biggest number in the given array.
+difficulty: easy
+tags:
+  - recursion
+  - maximum
+signature: |
+  def maximum(numbers):
+    pass
+solutions:
+    - summary: Brute force solution
+      content: |
+        ```python
+        def maximum(numbers):
+          max = float('-inf')
+          for n in numbers:
+            if n > max:
+                max = n
+          return max
+        ```
+    - summary: Recursive solution
+      content: |
+        ```python
+        def maximum(numbers):
+          if len(numbers) == 1:
+            return numbers[0]
+          else:
+            return max(numbers[0], maximum(numbers[1:]))
+        ```
+    - summary: Recursive solution with helper function
+      content: |
+        ```python
+        def maximum(numbers):
+          def maximum_helper(numbers, i, n):
+            if i == n:
+              return numbers[i]
+            else:
+              return max(numbers[i], maximum_helper(numbers, i+1, n))
+          return maximum_helper(numbers, 0, len(numbers) - 1)
+        ```
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(maximum([1,2,3]), equal_to(3)), 'maximum([1,2,3]) should be equal to 3')

@@ -1,0 +1,11 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(merge_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'merge_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')",
+    "description": "# Problem Description\n\nImplement a function `merge_sort` that takes in an array of integers and sorts them in ascending order using the Merge Sort algorithm.\n\nMerge Sort is a divide-and-conquer algorithm that works by recursively dividing the array into two halves, sorting each half, and then merging the two sorted halves into a single sorted array.\n\nYour task is to write the `merge_sort` function that performs the Merge Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\nNote that the input and output arrays are shown as lists for clarity, but your `merge_sort` function should work with regular arrays as well.\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+    "difficulty": "easy",
+    "id": "p11",
+    "name": "Implement Merge Sort",
+    "signature": "def merge_sort(array):\n  pass\n",
+    "tags": [
+        "sorting"
+    ]
+}

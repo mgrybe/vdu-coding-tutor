@@ -1,0 +1,15 @@
+id: m2
+name: Getting started with dicts
+summary: Get started with basic algorithms using Python dicts
+description: |
+  # Module Description
+  
+  This module provides problems to get you started with dicts.
+difficulty: medium
+tags:
+  - basics
+problems:
+  - p5
+  - p6
+  - p7
+  - p8

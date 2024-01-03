@@ -1,0 +1,36 @@
+# https://yaml-multiline.info/
+id: p15
+name: Implement Selection Sort
+description: |
+  # Problem Description
+  
+  In this problem, you are required to implement a function named selection_sort(arr), that will take an array of integers as input and return the sorted array in ascending order. You must use the Selection Sort algorithm to accomplish this.
+
+  The Selection Sort algorithm works by iterating over the array and repeatedly finding the minimum element from the unsorted part and putting it at the beginning of the unsorted part. The algorithm maintains two subarrays in a given array: one that is already sorted and one that is unsorted.
+  
+  The function you implement should be able to handle an array of up to 1000 elements.
+  
+  ## Example 1
+  
+  ```
+  Input: selection_sort([64, 25, 12, 22, 11])
+  Output: [11, 12, 22, 25, 64]
+  ```
+  
+  ## Constraints
+  
+  - All elements of the array are integers.
+  - The array can have a maximum of 1000 elements.
+  - The integers will be in the range -10^6 to 10^6.
+difficulty: easy
+tags:
+  - sorting
+signature: |
+  def selection_sort(array):
+    pass
+
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(selection_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'selection_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')

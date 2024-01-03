@@ -1,0 +1,15 @@
+id: m2
+name: Getting started with sets
+summary: Get started with basic algorithms using Python sets
+description: |
+  # Module Description
+  
+  This module provides problems to get you started with sets.
+difficulty: high
+tags:
+  - basics
+problems:
+  - p5
+  - p6
+  - p7
+  - p8

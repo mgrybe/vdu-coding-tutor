@@ -1,0 +1,11 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(bubble_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'bubble_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')",
+    "description": "# Problem Description\n\nImplement a function `bubble_sort` that takes in an array of integers and sorts them in ascending order using the Bubble Sort algorithm.\n\nBubble Sort is a simple comparison-based sorting algorithm that works by repeatedly swapping adjacent elements if they are in the wrong order. The algorithm continues to pass through the array until no more swaps are needed, indicating that the array is sorted.\n\nYour task is to write the `bubble_sort` function that performs the Bubble Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\nNote that the input and output arrays are shown as lists for clarity, but your `bubble_sort` function should work with regular arrays as well.\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+    "difficulty": "easy",
+    "id": "p5",
+    "name": "Implement Bubble Sort",
+    "signature": "def bubble_sort(array):\n  pass\n",
+    "tags": [
+        "sorting"
+    ]
+}

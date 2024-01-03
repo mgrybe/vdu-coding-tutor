@@ -1,0 +1,15 @@
+id: m1
+name: Getting Started
+summary: Get started with basic Python syntax
+description: |
+  # Module Description
+  
+  This module provides problems to get you started with Python programming.
+difficulty: easy
+tags:
+  - basics
+problems:
+  - p1
+  - p2
+  - p3
+  - p4

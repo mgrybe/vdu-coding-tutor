@@ -1,0 +1,9 @@
+rootProject.name = 'openai-coding-app-master'
+include 'web-app'
+include 'code-exec-lambda'
+include 'openai-assist-lambda'
+include 'code-problems-lambda'
+include 'openai-chat-lambda'
+include 'openai-chat-lambda-incoming'
+include 'openai-chat-lambda-outgoing'
+

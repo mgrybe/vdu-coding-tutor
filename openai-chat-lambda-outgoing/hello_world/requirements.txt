@@ -1,0 +1,6 @@
+urllib3==1.26.*
+openai
+langchain
+requests
+numpy
+tiktoken

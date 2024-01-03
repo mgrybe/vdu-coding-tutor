@@ -1,0 +1,17 @@
+{
+    "description": "# Module Description\n\nThis module provides problems to get you started with sets.\n",
+    "difficulty": "high",
+    "id": "m2",
+    "name": "Getting started with sets",
+    "problems": [
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+    ],
+    "summary": "Get started with basic algorithms using Python sets",
+    "tags": [
+        "basics"
+    ]
+}
+

@@ -1,0 +1,26 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(minimum([1,2,3]), equal_to(1)), 'minimum([1,2,3]) should be equal to 1')",
+    "description": "# Problem Description\n\nWrite a Python program to find the smallest number in an array of numbers.\n\n## Input\n\n- An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.\n\n## Output\n\n- Return the smallest number in the given array.\n",
+    "difficulty": "easy",
+    "id": "p8",
+    "name": "Find minimum",
+    "signature": "def minimum(numbers):\n  pass\n",
+    "solutions": [
+        {
+            "content": "```python\ndef minimum(numbers):\n  min = float('inf')\n  for n in numbers:\n    if n < min:\n      min = n\n  return min\n```\n",
+            "summary": "Brute force solution"
+        },
+        {
+            "content": "```python\ndef minimum(numbers):\n  if len(numbers) == 1:\n    return numbers[0]\n  else:\n    return min(numbers[0], minimum(numbers[1:]))\n```\n",
+            "summary": "Recursive solution"
+        },
+        {
+            "content": "```python\ndef minimum(numbers):\n  def minimum_helper(numbers, i, n):\n    if i == n:\n      return numbers[i]\n    else:\n      return min(numbers[i], minimum_helper(numbers, i+1, n))\n  return minimum_helper(numbers, 0, len(numbers) - 1)\n```\n",
+            "summary": "Recursive solution with helper function"
+        }
+    ],
+    "tags": [
+        "recursion",
+        "minimum"
+    ]
+}

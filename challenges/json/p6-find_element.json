@@ -1,0 +1,13 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(search([1,2,3], 3), equal_to(2)), 'search(array, element) should find element')\ntest(report, lambda: assert_that(search([1,2,3], 4), equal_to(-1)), 'search(array, element) should not find element (return -1)')",
+    "description": "# Problem Description\n\nWrite a Python program to find a given element in an array of numbers and return its index, or return `-1` if the element is not found.\n\n## Input\n\n- An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.\n- A target number, `target` (-10^9 <= target <= 10^9), which is an integer.\n\n## Output\n\n- Return the index of the target number in the given array if it's present, or return `-1` if the target number is not found.\n",
+    "difficulty": "easy",
+    "id": "p6",
+    "name": "Find element in array",
+    "signature": "def search(array, element):\n  pass\n",
+    "tags": [
+        "recursion",
+        "array",
+        "search"
+    ]
+}

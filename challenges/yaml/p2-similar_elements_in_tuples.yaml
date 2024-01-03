@@ -1,0 +1,48 @@
+id: p2
+name: Similar Elements in Tuples
+description: |
+  # Problem Description
+  
+  Write a function to find the similar elements from the given two tuple lists.
+  
+  ## Example
+  
+  ~~~python
+  Input: test_tup1 = (3, 4, 5, 6), test_tup2 = (5, 7, 4, 10)
+  Output: (4, 5)
+  Explanation: The elements 4 and 5 are present in both tuples, so the function returns (4, 5).
+  ~~~
+ai_description: |
+  # Problem Description
+
+  Write a function to find the similar elements from the given two tuple lists.
+
+  ## Example
+
+  ~~~python
+  Input: test_tup1 = (3, 4, 5, 6), test_tup2 = (5, 7, 4, 10)
+  Output: (4, 5)
+  Explanation: The elements 4 and 5 are present in both tuples, so the function returns (4, 5).
+  ~~~
+difficulty: easy
+tags:
+  - tuples
+  - sets
+signature: |
+  def similar_elements(test_tup1, test_tup2):
+    pass
+solutions:
+  - summary: Set intersection solution
+    content: |
+      ```python
+      def similar_elements(test_tup1, test_tup2):
+        res = tuple(set(test_tup1) & set(test_tup2))
+        return (res)
+      ```
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+  
+  test(report, lambda: assert_that(similar_elements((3, 4, 5, 6), (5, 7, 4, 10)), equal_to((4, 5))), 'similar_elements((3, 4, 5, 6), (5, 7, 4, 10)) should be equal to (4, 5)')
+  test(report, lambda: assert_that(similar_elements((1, 2, 3, 4), (5, 4, 3, 7)), equal_to((3, 4))), 'similar_elements((1, 2, 3, 4), (5, 4, 3, 7)) should be equal to (3, 4)')
+  test(report, lambda: assert_that(similar_elements((11, 12, 14, 13), (17, 15, 14, 13)), equal_to((13, 14))), 'similar_elements((11, 12, 14, 13), (17, 15, 14, 13)) should be equal to (13, 14)')

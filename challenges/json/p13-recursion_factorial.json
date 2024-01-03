@@ -1,0 +1,12 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(factorial(3), equal_to(6)), 'factorial(3) should be equal to 6')\ntest(report, lambda: assert_that(factorial(1), equal_to(1)), 'factorial(1) should be equal to 1')\n",
+    "description": "# Problem Description\n\nWrite a Python program to compute the factorial of a non-negative integer `n`.\n\n## Input\n\n- A non-negative integer `n` (0 <= n <= 12).\n\n## Output\n\n- Return the factorial of the given integer `n`.\n",
+    "difficulty": "easy",
+    "id": "p13",
+    "name": "Factorial",
+    "signature": "def factorial(n):\n  pass\n",
+    "tags": [
+        "recursion",
+        "factorial"
+    ]
+}

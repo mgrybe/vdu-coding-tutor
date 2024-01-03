@@ -1,0 +1,26 @@
+{
+    "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2), equal_to(8)), 'min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) should be equal to 8')\ntest(report, lambda: assert_that(min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2), equal_to(12)), 'min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) should be equal to 12')\ntest(report, lambda: assert_that(min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2), equal_to(16)), 'min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) should be equal to 16')",
+    "description": "# Problem Description\n\nGiven a cost matrix cost[][] and a position (m, n) in cost[][], write a function that returns cost of minimum cost path to reach (m, n) from (0, 0). Each cell of the matrix represents a cost to traverse through that cell. The total cost of a path to reach (m, n) is the sum of all the costs on that path (including both source and destination). You can only traverse down, right and diagonally lower cells from a given cell, i.e., from a given cell (i, j), cells (i+1, j), (i, j+1), and (i+1, j+1) can be traversed. \n\n## Example 1:\n\n~~~python\nInput: cost = [[1, 2, 3], [4, 8, 2], [1, 5, 3]], m = 2, n = 2\nOutput: 8\nExplanation: Because the minimum cost path is 1->2->2->3, we return 8.\n~~~\n",
+    "difficulty": "medium",
+    "id": "p1",
+    "name": "Minimum Cost Path",
+    "signature": "def min_cost(cost, m, n):\n  pass\n",
+    "solutions": [
+        {
+            "content": "```python\ndef min_cost(cost, m, n):\n  if m < 0 or n < 0:\n    return float('inf')\n  elif m == 0 and n == 0:\n    return cost[m][n]\n  else:\n    return cost[m][n] + min(min_cost(cost, m - 1, n - 1), min_cost(cost, m - 1, n), min_cost(cost, m, n - 1))\n```\n",
+            "summary": "Brute force solution"
+        },
+        {
+            "content": "```python\ndef min_cost(cost, m, n):\n  tc = [[-1 for _ in range(n + 1)] for _ in range(m + 1)]\n  return min_cost_helper(cost, m, n, tc)\n\ndef min_cost_helper(cost, m, n, tc):\n  if m < 0 or n < 0:\n    return float('inf')\n  elif m == 0 and n == 0:\n    return cost[m][n]\n  elif tc[m][n] != -1:\n    return tc[m][n]\n  else:\n    tc[m][n] = cost[m][n] + min(min_cost_helper(cost, m - 1, n - 1, tc), min_cost_helper(cost, m - 1, n, tc), min_cost_helper(cost, m, n - 1, tc))\n    return tc[m][n]\n```\n",
+            "summary": "Dynamic programming top-down solution"
+        },
+        {
+            "content": "```python\ndef min_cost(cost, m, n):\n  tc = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n\n  tc[0][0] = cost[0][0]\n  for i in range(1, m + 1):\n    tc[0][i] = tc[0][i - 1] + cost[0][i]\n  \n  for i in range(1, n + 1):\n    tc[i][0] = tc[i - 1][0] + cost[i][0]\n\n  for i in range(1, m+1):\n    for j in range(1, n+1):\n      tc[i][j] = min(tc[i-1][j], tc[i][j-1], tc[i-1][j-1]) + cost[i][j]\n  \n  return tc[m][n]\n```\n",
+            "summary": "Dynamic programming bottom-up solution"
+        }
+    ],
+    "tags": [
+        "dynamic programming",
+        "matrix"
+    ]
+}

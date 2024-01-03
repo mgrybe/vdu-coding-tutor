@@ -1,0 +1,58 @@
+# https://yaml-multiline.info/
+id: p8
+name: Find minimum
+description: |
+  # Problem Description
+
+  Write a Python program to find the smallest number in an array of numbers.
+
+  ## Input
+
+  - An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.
+
+  ## Output
+
+  - Return the smallest number in the given array.
+difficulty: easy
+tags:
+  - recursion
+  - minimum
+signature: |
+  def minimum(numbers):
+    pass
+solutions:
+  - summary: Brute force solution
+    content: |
+      ```python
+      def minimum(numbers):
+        min = float('inf')
+        for n in numbers:
+          if n < min:
+            min = n
+        return min
+      ```
+  - summary: Recursive solution
+    content: |
+      ```python
+      def minimum(numbers):
+        if len(numbers) == 1:
+          return numbers[0]
+        else:
+          return min(numbers[0], minimum(numbers[1:]))
+      ```
+  - summary: Recursive solution with helper function
+    content: |
+      ```python
+      def minimum(numbers):
+        def minimum_helper(numbers, i, n):
+          if i == n:
+            return numbers[i]
+          else:
+            return min(numbers[i], minimum_helper(numbers, i+1, n))
+        return minimum_helper(numbers, 0, len(numbers) - 1)
+      ```
+assertions: |
+  from hamcrest import *
+  from testing import TestReport, test
+
+  test(report, lambda: assert_that(minimum([1,2,3]), equal_to(1)), 'minimum([1,2,3]) should be equal to 1')

@@ -1,0 +1,17 @@
+{
+    "description": "# Module Description\n\nThis module provides problems to get you started with Python programming.\n",
+    "difficulty": "easy",
+    "id": "m3",
+    "name": "Getting Started 2",
+    "problems": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+    ],
+    "summary": "Get started with basic Python syntax",
+    "tags": [
+        "basics"
+    ]
+}
+

@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;\*/
+  font-family: Optimistic Display, -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  /*line-height: 1.75;*/
+  background-color: aliceblue;
+  color: rgb(35, 39, 47);
+}
+
+.stdout {
+  color: rgb(255, 255, 255);
+  margin-left: 15px;
+}
+
+.problem-left {}
+
+.problem-right {}
+
+.problem-title {
+  margin-bottom: 20px !important;
+  margin-left: 12px !important;
+}
+
+.problemsTable h2 {
+  margin-bottom: 20px !important;
+}
+
+.problem h1 {
+  font-size: 19px;
+}
+
+.problem h2 {
+  font-size: 16px;
+}
+
+.comment-content {
+  padding-top: 5px;
+}
+
+.comment-content h1 {
+  font-size: 19px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.comment-content h2 {
+  font-size: 16px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.comment-content p {
+  margin: 0;
+  padding: 0;
+}
+
+/*.comment-content code {
+  margin: 5px 0;
+  padding: 0;
+}*/
+
+.comment-content ul {
+  margin: -20px 0;
+}
+
+.comment-content li {
+  margin: -10px 0;
+}
+
+/*div.problem {
+  background-color: aliceblue;
+}*/
+
+/*code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}*/
+
+#feedback-container *[role=tabpanel] .MuiBox-root {
+  height: 42%;
+}
+
+code {
+  white-space: break-spaces;
+  background-color: #f5f5f5;
+  /*font-family: "Courier New", Courier, monospace;*/
+  /*font-size: 14px;*/
+  /*line-height: 1.5;*/
+  /*padding: 8px 12px;*/
+  /*display: inline-block;*/
+  border-radius: 4px;
+  /*white-space: pre;*/
+  /*overflow-wrap: break-word;*/
+  color: #333;
+  padding: 0 5px;
+
+  /* display: flex;
+  flex-direction: column;*/
+  width: calc(100% - 70px);
+  word-wrap: break-word;
+  white-space: break-spaces;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+pre code {
+  display: flex;
+  flex-direction: column;
+}
+
+pre {
+  white-space: break-spaces;
+}
+
+.comment {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.comment-wrapper.assistant {
+  /*background-color: aliceblue;*/
+  /*background-color: rgb(230, 247, 255);*/
+  background-color: rgb(100, 116, 139);
+  color: rgb(255, 255, 255);
+}
+
+.comment-wrapper.user {
+  background-color: #f5f6f8;
+}
+
+.comment-avatar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 70px);
+  word-wrap: break-word;
+  white-space: break-spaces;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.alerts {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  height: 20px;
+}
+
+.exec-button {
+  /*margin-top: 0.5rem;*/
+  margin-bottom: 6px;
+  margin-top: 5px;
+  margin-right: 5px;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.editor {
+  /*min-height: 800px;*/
+  /*height: 100%;*/
+}
+
+.challenge-title {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.page {
+  margin: 0 auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.MuiTableCell-head {
+  font-weight: bold !important;
+}
+
+[data-amplify-authenticator] {
+  background-color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.glow {
+  /*font-size: 16pt;*/
+  /*color: #fff;*/
+  color: #2e7d32;
+  text-align: center;
+  animation: glow 2s ease-in-out infinite alternate;
+  /*padding: 5px 5px;*/
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 px #fff;
+  }
+
+  to {
+    text-shadow: 0 0 11px #fff, 0 0 12px #07A828;
+  }
+}
+
+/* styles.css */
+a {
+  color: black;
+  /* Replace 'desiredColor' with your preferred color, e.g., #FF5733 */
+  text-decoration: none;
+  /* Optional: if you want to remove the underline */
+}
+
+a:hover {
+  color: rgba(72, 88, 150, 0.91);
+  /* Replace 'anotherColor' with the color you want on hover, e.g., #FF8855 */
+  text-decoration: underline;
+  /* Optional: if you want to show underline on hover */
+}
+
+.svg-container {
+  width: 200px;
+  /* Or whatever width you want */
+  height: 200px;
+  /* Or whatever height you want */
+}
+
+.reading-content pre {
+  background: rgb(40 44 52 / 25%);
+  /*color: rgb(255, 255, 255);*/
+  border-radius: 10px;
+  overflow: auto;
+  tab-size: 1.5em;
+  /*margin-left: 0;*/
+  /*display: inline-block;*/
+  /*color: white;*/
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.toc {
+  position: sticky;
+  top: 0px;
+}

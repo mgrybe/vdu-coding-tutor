@@ -1,0 +1,254 @@
+{
+    "problems": [
+        {
+            "id": "p15",
+            "name": "Implement Selection Sort",
+            "description": "# Problem Description\n\nIn this problem, you are required to implement a function named selection_sort(arr), that will take an array of integers as input and return the sorted array in ascending order. You must use the Selection Sort algorithm to accomplish this.\n\nThe Selection Sort algorithm works by iterating over the array and repeatedly finding the minimum element from the unsorted part and putting it at the beginning of the unsorted part. The algorithm maintains two subarrays in a given array: one that is already sorted and one that is unsorted.\n\nThe function you implement should be able to handle an array of up to 1000 elements.\n\n## Example 1\n\n```\nInput: selection_sort([64, 25, 12, 22, 11])\nOutput: [11, 12, 22, 25, 64]\n```\n\n## Constraints\n\n- All elements of the array are integers.\n- The array can have a maximum of 1000 elements.\n- The integers will be in the range -10^6 to 10^6.\n",
+            "difficulty": "easy",
+            "tags": [
+                "sorting"
+            ],
+            "signature": "def selection_sort(array):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(selection_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'selection_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')"
+        },
+        {
+            "id": "p16",
+            "name": "Two Sum",
+            "description": "# Problem Description\n\nGiven an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.\n\n## Example 1:\n\n~~~js\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1].\n~~~\n\n## Example 2:\n\n~~~js\nInput: nums = [3,2,4], target = 6\nOutput: [1,2]\n~~~\n\n## Example 3:\n\n~~~js\nInput: nums = [3,3], target = 6\nOutput: [0,1]\n~~~\n\n## Constraints:\n\n- 2 <= nums.length <= 104\n- -109 <= nums[i] <= 109\n- -109 <= target <= 109\n- Only one valid answer exists.\n\nFollow-up: Can you come up with an algorithm that is less than O(n2) time complexity?\n",
+            "ai_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.\n",
+            "difficulty": "easy",
+            "tags": [
+                "array",
+                "search"
+            ],
+            "signature": "def two_sum(nums, target):\n  pass\n",
+            "solutions": [
+                {
+                    "summary": "Brute force",
+                    "content": "```python\ndef two_sum(nums, target):\n  for i in range(len(nums)):\n    for j in range(i+1, len(nums)):\n      if nums[i] + nums[j] == target:\n        return [i, j]\n```\n"
+                },
+                {
+                    "summary": "Optimised version using Hash table",
+                    "content": "```python\ndef two_sum(nums, target):\n  seen = dict()\n  for i, num in enumerate(nums):\n    complement = target - num\n    if complement in seen:\n      return [seen[complement], i]\n    seen[num] = i\n```\n"
+                }
+            ],
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(two_sum([2,7,11,15], 9), equal_to([0,1])), 'two_sum([2,7,11,15], 9) should be equal to [0,1]')\ntest(report, lambda: assert_that(two_sum([3,2,4], 6), equal_to([1,2])), 'two_sum([3,2,4], 6) should be equal to [1,2]')\ntest(report, lambda: assert_that(two_sum([3,3], 6), equal_to([0,1])), 'two_sum([3,3], 6) should be equal to [0,1]')"
+        },
+        {
+            "id": "p7",
+            "name": "Find maximum",
+            "description": "# Problem Description\n\nWrite a Python program to find the biggest number in an array of numbers.\n\n## Input\n\n- An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.\n\n## Output\n\n- Return the biggest number in the given array.\n",
+            "difficulty": "easy",
+            "tags": [
+                "recursion",
+                "maximum"
+            ],
+            "signature": "def maximum(numbers):\n  pass\n",
+            "solutions": [
+                {
+                    "summary": "Brute force solution",
+                    "content": "```python\ndef maximum(numbers):\n  max = float('-inf')\n  for n in numbers:\n    if n > max:\n        max = n\n  return max\n```\n"
+                },
+                {
+                    "summary": "Recursive solution",
+                    "content": "```python\ndef maximum(numbers):\n  if len(numbers) == 1:\n    return numbers[0]\n  else:\n    return max(numbers[0], maximum(numbers[1:]))\n```\n"
+                },
+                {
+                    "summary": "Recursive solution with helper function",
+                    "content": "```python\ndef maximum(numbers):\n  def maximum_helper(numbers, i, n):\n    if i == n:\n      return numbers[i]\n    else:\n      return max(numbers[i], maximum_helper(numbers, i+1, n))\n  return maximum_helper(numbers, 0, len(numbers) - 1)\n```\n"
+                }
+            ],
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(maximum([1,2,3]), equal_to(3)), 'maximum([1,2,3]) should be equal to 3')"
+        },
+        {
+            "id": "p9",
+            "name": "Implement Heap Sort",
+            "description": "# Problem Description\n\nImplement a function `heap_sort` that takes in an array of integers and sorts them in ascending order using the Heap Sort algorithm.\n\nHeap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. The algorithm first builds a max-heap from the input array, where the largest element is at the root. It then repeatedly removes the maximum element from the heap, places it at the end of the sorted array, and fixes the heap property. This process continues until the array is completely sorted.\n\nYour task is to write the `heap_sort` function that performs the Heap Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\nNote that the input and output arrays are shown as lists for clarity, but your `heap_sort` function should work with regular arrays as well.\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+            "difficulty": "easy",
+            "tags": [
+                "sorting"
+            ],
+            "signature": "def heap_sort(array):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(heap_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'heap_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')"
+        },
+        {
+            "id": "p5",
+            "name": "Implement Bubble Sort",
+            "description": "# Problem Description\n\nImplement a function `bubble_sort` that takes in an array of integers and sorts them in ascending order using the Bubble Sort algorithm.\n\nBubble Sort is a simple comparison-based sorting algorithm that works by repeatedly swapping adjacent elements if they are in the wrong order. The algorithm continues to pass through the array until no more swaps are needed, indicating that the array is sorted.\n\nYour task is to write the `bubble_sort` function that performs the Bubble Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\nNote that the input and output arrays are shown as lists for clarity, but your `bubble_sort` function should work with regular arrays as well.\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+            "difficulty": "easy",
+            "tags": [
+                "sorting"
+            ],
+            "signature": "def bubble_sort(array):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(bubble_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'bubble_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')"
+        },
+        {
+            "id": "p12",
+            "name": "Implement Quick Sort",
+            "description": "# Problem Description\n\nImplement a function `quick_sort` that takes in an array of integers and sorts them in ascending order using the Quick Sort algorithm.\n\nQuick Sort is a popular comparison-based sorting algorithm that works by partitioning the array into two sub-arrays, according to a chosen pivot element. The elements less than the pivot are placed before it, and the elements greater than the pivot are placed after it. The algorithm then recursively sorts the sub-arrays until the entire array is sorted.\n\nYour task is to write the `quick_sort` function that performs the Quick Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\nNote that the input and output arrays are shown as lists for clarity, but your `quick_sort` function should work with regular arrays as well.\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+            "difficulty": "easy",
+            "tags": [
+                "sorting"
+            ],
+            "signature": "def quick_sort(array):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(quick_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'quick_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')"
+        },
+        {
+            "id": "p1",
+            "name": "Minimum Cost Path",
+            "description": "# Problem Description\n\nGiven a cost matrix cost[][] and a position (m, n) in cost[][], write a function that returns cost of minimum cost path to reach (m, n) from (0, 0). Each cell of the matrix represents a cost to traverse through that cell. The total cost of a path to reach (m, n) is the sum of all the costs on that path (including both source and destination). You can only traverse down, right and diagonally lower cells from a given cell, i.e., from a given cell (i, j), cells (i+1, j), (i, j+1), and (i+1, j+1) can be traversed. \n\n## Example 1:\n\n~~~python\nInput: cost = [[1, 2, 3], [4, 8, 2], [1, 5, 3]], m = 2, n = 2\nOutput: 8\nExplanation: Because the minimum cost path is 1->2->2->3, we return 8.\n~~~\n",
+            "difficulty": "medium",
+            "tags": [
+                "dynamic programming",
+                "matrix"
+            ],
+            "signature": "def min_cost(cost, m, n):\n  pass\n",
+            "solutions": [
+                {
+                    "summary": "Brute force solution",
+                    "content": "```python\ndef min_cost(cost, m, n):\n  if m < 0 or n < 0:\n    return float('inf')\n  elif m == 0 and n == 0:\n    return cost[m][n]\n  else:\n    return cost[m][n] + min(min_cost(cost, m - 1, n - 1), min_cost(cost, m - 1, n), min_cost(cost, m, n - 1))\n```\n"
+                },
+                {
+                    "summary": "Dynamic programming top-down solution",
+                    "content": "```python\ndef min_cost(cost, m, n):\n  tc = [[-1 for _ in range(n + 1)] for _ in range(m + 1)]\n  return min_cost_helper(cost, m, n, tc)\n\ndef min_cost_helper(cost, m, n, tc):\n  if m < 0 or n < 0:\n    return float('inf')\n  elif m == 0 and n == 0:\n    return cost[m][n]\n  elif tc[m][n] != -1:\n    return tc[m][n]\n  else:\n    tc[m][n] = cost[m][n] + min(min_cost_helper(cost, m - 1, n - 1, tc), min_cost_helper(cost, m - 1, n, tc), min_cost_helper(cost, m, n - 1, tc))\n    return tc[m][n]\n```\n"
+                },
+                {
+                    "summary": "Dynamic programming bottom-up solution",
+                    "content": "```python\ndef min_cost(cost, m, n):\n  tc = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n\n  tc[0][0] = cost[0][0]\n  for i in range(1, m + 1):\n    tc[0][i] = tc[0][i - 1] + cost[0][i]\n  \n  for i in range(1, n + 1):\n    tc[i][0] = tc[i - 1][0] + cost[i][0]\n\n  for i in range(1, m+1):\n    for j in range(1, n+1):\n      tc[i][j] = min(tc[i-1][j], tc[i][j-1], tc[i-1][j-1]) + cost[i][j]\n  \n  return tc[m][n]\n```\n"
+                }
+            ],
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2), equal_to(8)), 'min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) should be equal to 8')\ntest(report, lambda: assert_that(min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2), equal_to(12)), 'min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) should be equal to 12')\ntest(report, lambda: assert_that(min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2), equal_to(16)), 'min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) should be equal to 16')"
+        },
+        {
+            "id": "p2",
+            "name": "Similar Elements in Tuples",
+            "description": "# Problem Description\n\nWrite a function to find the similar elements from the given two tuple lists.\n\n## Example\n\n~~~python\nInput: test_tup1 = (3, 4, 5, 6), test_tup2 = (5, 7, 4, 10)\nOutput: (4, 5)\nExplanation: The elements 4 and 5 are present in both tuples, so the function returns (4, 5).\n~~~\n",
+            "ai_description": "# Problem Description\n\nWrite a function to find the similar elements from the given two tuple lists.\n\n## Example\n\n~~~python\nInput: test_tup1 = (3, 4, 5, 6), test_tup2 = (5, 7, 4, 10)\nOutput: (4, 5)\nExplanation: The elements 4 and 5 are present in both tuples, so the function returns (4, 5).\n~~~\n",
+            "difficulty": "easy",
+            "tags": [
+                "tuples",
+                "sets"
+            ],
+            "signature": "def similar_elements(test_tup1, test_tup2):\n  pass\n",
+            "solutions": [
+                {
+                    "summary": "Set intersection solution",
+                    "content": "```python\ndef similar_elements(test_tup1, test_tup2):\n  res = tuple(set(test_tup1) & set(test_tup2))\n  return (res)\n```\n"
+                }
+            ],
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(similar_elements((3, 4, 5, 6), (5, 7, 4, 10)), equal_to((4, 5))), 'similar_elements((3, 4, 5, 6), (5, 7, 4, 10)) should be equal to (4, 5)')\ntest(report, lambda: assert_that(similar_elements((1, 2, 3, 4), (5, 4, 3, 7)), equal_to((3, 4))), 'similar_elements((1, 2, 3, 4), (5, 4, 3, 7)) should be equal to (3, 4)')\ntest(report, lambda: assert_that(similar_elements((11, 12, 14, 13), (17, 15, 14, 13)), equal_to((13, 14))), 'similar_elements((11, 12, 14, 13), (17, 15, 14, 13)) should be equal to (13, 14)')"
+        },
+        {
+            "id": "p6",
+            "name": "Find element in array",
+            "description": "# Problem Description\n\nWrite a Python program to find a given element in an array of numbers and return its index, or return `-1` if the element is not found.\n\n## Input\n\n- An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.\n- A target number, `target` (-10^9 <= target <= 10^9), which is an integer.\n\n## Output\n\n- Return the index of the target number in the given array if it's present, or return `-1` if the target number is not found.\n",
+            "difficulty": "easy",
+            "tags": [
+                "recursion",
+                "array",
+                "search"
+            ],
+            "signature": "def search(array, element):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(search([1,2,3], 3), equal_to(2)), 'search(array, element) should find element')\ntest(report, lambda: assert_that(search([1,2,3], 4), equal_to(-1)), 'search(array, element) should not find element (return -1)')"
+        },
+        {
+            "id": "p4",
+            "name": "Add Two Numbers",
+            "description": "# Problem Description\n\nYou are given two non-empty lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a list.\n\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.\n\n## Example 1:\n\n~~~js\nInput: l1 = [2,4,3], l2 = [5,6,4]\nOutput: [7,0,8]\nExplanation: 342 + 465 = 807.\n~~~\n\n## Example 2:\n\n~~~js\nInput: l1 = [0], l2 = [0]\nOutput: [0]\n~~~\n\n## Example 3:\n\n~~~js\nInput: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\nOutput: [8,9,9,9,0,0,0,1]\n~~~\n\n## Constraints:\n\n- The number of elements in each list is in the range [1, 100].\n- 0 <= element <= 9\n- It is guaranteed that the list represents a number that does not have leading zeros.\n",
+            "difficulty": "medium",
+            "signature": "def add_two_numbers(l1, l2):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(add_two_numbers([2,4,3], [5,6,4]), equal_to([7,0,8])), 'add_two_numbers([2,4,3], [5,6,4]) should be equal to [7,0,8]')\ntest(report, lambda: assert_that(add_two_numbers([0], [0]), equal_to([0])), 'add_two_numbers([0], [0]) should be equal to [0]')"
+        },
+        {
+            "id": "p14",
+            "name": "Fibonacci",
+            "description": "# Problem Description\n\nThe Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,\n\n~~~js\nF(0) = 0, F(1) = 1\nF(n) = F(n - 1) + F(n - 2), for n > 1.\nGiven n, calculate F(n).\n~~~\n\n## Example:\n\n~~~js\nInput: n = 4\nOutput: 3\nExplanation: F(4) = F(3) + F(2) = 2 + 1 = 3.\n~~~\n\nConstraints:\n\n~~~js\n0 <= n <= 30\n~~~\n",
+            "difficulty": "easy",
+            "tags": [
+                "recursion",
+                "fibonacci"
+            ],
+            "signature": "def fibonacci(n):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(fibonacci(0), equal_to(0)), 'fibonacci(0) should be equal to 0')\ntest(report, lambda: assert_that(fibonacci(1), equal_to(1)), 'fibonacci(1) should be equal to 1')\ntest(report, lambda: assert_that(fibonacci(2), equal_to(1)), 'fibonacci(1) should be equal to 1')\ntest(report, lambda: assert_that(fibonacci(10), equal_to(55)), 'fibonacci(10) should be equal to 55')\n"
+        },
+        {
+            "id": "p13",
+            "name": "Factorial",
+            "description": "# Problem Description\n\nWrite a Python program to compute the factorial of a non-negative integer `n`.\n\n## Input\n\n- A non-negative integer `n` (0 <= n <= 12).\n\n## Output\n\n- Return the factorial of the given integer `n`.\n",
+            "difficulty": "easy",
+            "tags": [
+                "recursion",
+                "factorial"
+            ],
+            "signature": "def factorial(n):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(factorial(3), equal_to(6)), 'factorial(3) should be equal to 6')\ntest(report, lambda: assert_that(factorial(1), equal_to(1)), 'factorial(1) should be equal to 1')\n"
+        },
+        {
+            "id": "p3",
+            "name": "Non-prime Numbers Identification",
+            "description": "# Problem Description\n\nWrite a Python function to identify non-prime numbers.\n\nA non-prime number is a positive integer greater than 1 that is not a prime number. In other words, it has factors other than 1 and itself.\n\n## Example 1:\n\n~~~python\nInput: 2\nOutput: False\nExplanation: 2 is a prime number, so the output is False.\n~~~\n\n## Example 2:\n\n~~~python\nInput: 10\nOutput: True\nExplanation: 10 is not a prime number because it has factors other than 1 and itself (2 and 5), so the output is True.\n~~~\n\n## Example 3:\n\n~~~python\nInput: 35\nOutput: True\nExplanation: 35 is not a prime number because it has factors other than 1 and itself (5 and 7), so the output is True.\n~~~\n",
+            "ai_description": "# Problem Description\n\nWrite a Python function to identify non-prime numbers.\n\nA non-prime number is a positive integer greater than 1 that is not a prime number. In other words, it has factors other than 1 and itself.\n\n## Example 1:\n\n~~~python\nInput: 2\nOutput: False\nExplanation: 2 is a prime number, so the output is False.\n~~~\n\n## Example 2:\n\n~~~python\nInput: 10\nOutput: True\nExplanation: 10 is not a prime number because it has factors other than 1 and itself (2 and 5), so the output is True.\n~~~\n\n## Example 3:\n\n~~~python\nInput: 35\nOutput: True\nExplanation: 35 is not a prime number because it has factors other than 1 and itself (5 and 7), so the output is True.\n~~~\n",
+            "difficulty": "easy",
+            "tags": [
+                "prime numbers",
+                "mathematics"
+            ],
+            "signature": "def is_not_prime(n):\n  pass\n",
+            "solutions": [
+                {
+                    "summary": "Iterative solution",
+                    "content": "```python\nimport math\ndef is_not_prime(n):\n    result = False\n    for i in range(2,int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            result = True\n    return result\n```\n"
+                }
+            ],
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(is_not_prime(2), equal_to(False)), 'is_not_prime(2) should be equal to False')\ntest(report, lambda: assert_that(is_not_prime(10), equal_to(True)), 'is_not_prime(10) should be equal to True')\ntest(report, lambda: assert_that(is_not_prime(35), equal_to(True)), 'is_not_prime(35) should be equal to True')"
+        },
+        {
+            "id": "p11",
+            "name": "Implement Merge Sort",
+            "description": "# Problem Description\n\nImplement a function `merge_sort` that takes in an array of integers and sorts them in ascending order using the Merge Sort algorithm.\n\nMerge Sort is a divide-and-conquer algorithm that works by recursively dividing the array into two halves, sorting each half, and then merging the two sorted halves into a single sorted array.\n\nYour task is to write the `merge_sort` function that performs the Merge Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\nNote that the input and output arrays are shown as lists for clarity, but your `merge_sort` function should work with regular arrays as well.\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+            "difficulty": "easy",
+            "tags": [
+                "sorting"
+            ],
+            "signature": "def merge_sort(array):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(merge_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'merge_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')"
+        },
+        {
+            "id": "p8",
+            "name": "Find minimum",
+            "description": "# Problem Description\n\nWrite a Python program to find the smallest number in an array of numbers.\n\n## Input\n\n- An array of numbers, `arr` (1 <= len(arr) <= 10^4), where each number, `n` (-10^9 <= n <= 10^9), is an integer.\n\n## Output\n\n- Return the smallest number in the given array.\n",
+            "difficulty": "easy",
+            "tags": [
+                "recursion",
+                "minimum"
+            ],
+            "signature": "def minimum(numbers):\n  pass\n",
+            "solutions": [
+                {
+                    "summary": "Brute force solution",
+                    "content": "```python\ndef minimum(numbers):\n  min = float('inf')\n  for n in numbers:\n    if n < min:\n      min = n\n  return min\n```\n"
+                },
+                {
+                    "summary": "Recursive solution",
+                    "content": "```python\ndef minimum(numbers):\n  if len(numbers) == 1:\n    return numbers[0]\n  else:\n    return min(numbers[0], minimum(numbers[1:]))\n```\n"
+                },
+                {
+                    "summary": "Recursive solution with helper function",
+                    "content": "```python\ndef minimum(numbers):\n  def minimum_helper(numbers, i, n):\n    if i == n:\n      return numbers[i]\n    else:\n      return min(numbers[i], minimum_helper(numbers, i+1, n))\n  return minimum_helper(numbers, 0, len(numbers) - 1)\n```\n"
+                }
+            ],
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(minimum([1,2,3]), equal_to(1)), 'minimum([1,2,3]) should be equal to 1')"
+        },
+        {
+            "id": "p10",
+            "name": "Implement Insertion Sort",
+            "description": "# Problem Description\n\nImplement a function `insertion_sort` that takes in an array of integers and sorts them in ascending order using the Insertion Sort algorithm.\n\nInsertion Sort is a simple comparison-based sorting algorithm that builds the final sorted array one element at a time. It works by iterating over the array and repeatedly inserting the current element into its correct position among the previously sorted elements.\n\nYour task is to write the `insertion_sort` function that performs the Insertion Sort algorithm and returns the sorted array.\n\n## Example\n\n```python\nInput: [5, 2, 8, 12, 1]\nOutput: [1, 2, 5, 8, 12]\n```\n\n## Constraints\n\n* The input array will contain at most 1000 elements.\n* Each element in the array is an integer with a value between -1000 and 1000.\n",
+            "difficulty": "easy",
+            "tags": [
+                "sorting"
+            ],
+            "signature": "def insertion_sort(array):\n  pass\n",
+            "assertions": "from hamcrest import *\nfrom testing import TestReport, test\n\ntest(report, lambda: assert_that(insertion_sort([64, 25, 12, 22, 11]), equal_to([11, 12, 22, 25, 64])), 'insertion_sort([64, 25, 12, 22, 11]) should be equal to [11, 12, 22, 25, 64]')"
+        }
+    ]
+}

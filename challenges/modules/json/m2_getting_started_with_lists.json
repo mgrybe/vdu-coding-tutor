@@ -1,0 +1,17 @@
+{
+    "description": "# Module Description\n\nThis module provides problems to get you started with lists.\n",
+    "difficulty": "easy",
+    "id": "m2",
+    "name": "Getting started with lists",
+    "problems": [
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+    ],
+    "summary": "Get started with basic algorithms using Python lists",
+    "tags": [
+        "basics"
+    ]
+}
+

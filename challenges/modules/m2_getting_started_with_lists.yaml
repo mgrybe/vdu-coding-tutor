@@ -1,0 +1,15 @@
+id: m2
+name: Getting started with lists
+summary: Get started with basic algorithms using Python lists
+description: |
+  # Module Description
+  
+  This module provides problems to get you started with lists.
+difficulty: easy
+tags:
+  - basics
+problems:
+  - p5
+  - p6
+  - p7
+  - p8
